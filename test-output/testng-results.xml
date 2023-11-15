@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-11-15T23:33:38 WIB" name="Default suite" finished-at="2023-11-15T23:33:52 WIB" duration-ms="14502">
+    <groups>
+    </groups>
+    <test started-at="2023-11-15T23:33:38 WIB" name="Default test" finished-at="2023-11-15T23:33:52 WIB" duration-ms="14502">
+      <class name="org.selenium.orangeHRM.test.basic">
+        <test-method is-config="true" signature="lauchApplication()[pri:0, instance:org.selenium.orangeHRM.test.basic@7ae0a9ec]" started-at="2023-11-15T23:33:38 WIB" name="lauchApplication" finished-at="2023-11-15T23:33:48 WIB" duration-ms="10192" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- lauchApplication -->
+        <test-method signature="LGN002()[pri:1, instance:org.selenium.orangeHRM.test.basic@7ae0a9ec]" started-at="2023-11-15T23:33:48 WIB" name="LGN002" description="username and password null" finished-at="2023-11-15T23:33:49 WIB" duration-ms="733" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LGN002 -->
+        <test-method signature="LGN003()[pri:2, instance:org.selenium.orangeHRM.test.basic@7ae0a9ec]" started-at="2023-11-15T23:33:49 WIB" name="LGN003" description="password null" finished-at="2023-11-15T23:33:49 WIB" duration-ms="212" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LGN003 -->
+        <test-method signature="LGN001()[pri:3, instance:org.selenium.orangeHRM.test.basic@7ae0a9ec]" started-at="2023-11-15T23:33:49 WIB" name="LGN001" description="successfully login" finished-at="2023-11-15T23:33:52 WIB" duration-ms="3147" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LGN001 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.selenium.orangeHRM.test.basic@7ae0a9ec]" started-at="2023-11-15T23:33:52 WIB" name="tearDown" finished-at="2023-11-15T23:33:52 WIB" duration-ms="146" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.selenium.orangeHRM.test.basic -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
