@@ -30,6 +30,9 @@ public class LoginPage extends ReusedFeature {
 	@FindBy(className = "orangehrm-login-forgot-header")
 	private WebElement forgotPasswordButton;
 	
+	@FindBy(className = "oxd-alert-content-text")
+	private WebElement errorNotification;
+	
 	@FindBy(className = "oxd-input-group__message")
 	private List<WebElement> errorText;
 
@@ -37,8 +40,16 @@ public class LoginPage extends ReusedFeature {
 		userInput.sendKeys(user);
 	}
 	
+	public void usernameClear() {
+		userInput.clear();
+	}
+	
 	public void passInput(String pass) {
 		passInput.sendKeys(pass);
+	}
+	
+	public void passClear() {
+		passInput.clear();
 	}
 	
 	public void loginClick() {
@@ -61,5 +72,15 @@ public class LoginPage extends ReusedFeature {
 	public int errTextCount() {
 		int errCount = errorText.size();
 		return errCount;
+	}
+	
+	public String errNotifText() {
+		String notText = errorNotification.getText();
+		return notText;
+	}
+	
+	public boolean errNotifShown() {
+		boolean err = errorNotification.isDisplayed();
+		return err;
 	}
 }
