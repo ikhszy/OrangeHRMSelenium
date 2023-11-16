@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.selenium.orangeHRM.test.basic">
+      <class name="org.selenium.orangeHRM.test.ResetPasswordTest">
         <methods>
           <include name="lauchApplication"/>
+          <include name="RST003"/>
+          <include name="RST001"/>
           <include name="tearDown"/>
-          <include name="LGN003"/>
         </methods>
-      </class> <!-- org.selenium.orangeHRM.test.basic -->
+      </class> <!-- org.selenium.orangeHRM.test.ResetPasswordTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

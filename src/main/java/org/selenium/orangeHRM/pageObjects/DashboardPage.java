@@ -1,4 +1,4 @@
-package org.selenium.orangeHRM.test;
+package org.selenium.orangeHRM.pageObjects;
 
 import java.util.List;
 
@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.selenium.orangeHRM.utils.ReusedFeature;
-import org.testng.Assert;
 
 public class DashboardPage extends ReusedFeature {
 
@@ -57,11 +56,6 @@ WebDriver driver;
 	
 	public void searchMenuAndClick(String menu) {
 		sbSearch.sendKeys(menu);
-		
-		if(menus.size() < 1) {
-			Assert.fail("no menu found");
-		} else {
-			menus.get(0).click();
-		}
+		menus.get(0).click();
 	}
 }

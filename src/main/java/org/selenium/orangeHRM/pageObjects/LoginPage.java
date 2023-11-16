@@ -18,6 +18,9 @@ public class LoginPage extends ReusedFeature {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(className = "orangehrm-login-title")
+	public WebElement title;
+	
 	@FindBy(name = "username")
 	private WebElement userInput;
 	
@@ -54,10 +57,6 @@ public class LoginPage extends ReusedFeature {
 	
 	public void loginClick() {
 		loginButton.click();
-	}
-	
-	public void forgotPassClick() {
-		forgotPasswordButton.click();
 	}
 	
 	public void forgotClick() {
