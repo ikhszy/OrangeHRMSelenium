@@ -6,8 +6,8 @@
       <class name="org.selenium.orangeHRM.test.AdminTest">
         <methods>
           <include name="lauchApplication"/>
-          <include name="ADM001"/>
           <include name="tearDown"/>
+          <include name="ADM005"/>
         </methods>
       </class> <!-- org.selenium.orangeHRM.test.AdminTest -->
     </classes>
