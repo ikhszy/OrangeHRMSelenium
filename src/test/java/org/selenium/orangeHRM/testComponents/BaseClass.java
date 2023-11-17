@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.selenium.orangeHRM.pageObjects.AdminPage;
+import org.selenium.orangeHRM.pageObjects.DashboardPage;
 import org.selenium.orangeHRM.pageObjects.LoginPage;
 import org.selenium.orangeHRM.pageObjects.ResetPasswordPage;
 import org.testng.annotations.AfterClass;
@@ -21,6 +23,8 @@ public class BaseClass {
 	public WebDriver driver;
 	public LoginPage loginPage;
 	public ResetPasswordPage resetPage;
+	public DashboardPage dashPage;
+	public AdminPage admPage;
 	
 	public WebDriver initializeDriver() throws IOException {
 		
@@ -52,6 +56,8 @@ public class BaseClass {
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		loginPage = new LoginPage(driver);
 		resetPage = new ResetPasswordPage(driver);
+		dashPage = new DashboardPage(driver);
+		admPage = new AdminPage(driver);
 		
 	}
 	

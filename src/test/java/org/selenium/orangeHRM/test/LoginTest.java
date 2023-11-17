@@ -110,4 +110,4 @@ public class LoginTest extends BaseClass {
 			Assert.fail("error text only shown once");
 		}
 	}
-}
+} 
