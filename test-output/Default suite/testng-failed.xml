@@ -5,7 +5,10 @@
     <classes>
       <class name="org.selenium.orangeHRM.test.AdminTest">
         <methods>
+          <include name="ADM011"/>
           <include name="lauchApplication"/>
+          <include name="ADM010"/>
+          <include name="ADM012"/>
           <include name="tearDown"/>
           <include name="ADM005"/>
         </methods>

@@ -158,7 +158,7 @@ public class AdminPage extends ReusedFeature {
 	}
 	
 	public void waitPage() {
-		waitForElementToAppear(By.className("orangehrm-container"));
+		waitForElementToAppear(By.xpath("//*[@class='oxd-table-cell oxd-padding-cell']"));
 		
 		try {
 			Thread.sleep(3000);
