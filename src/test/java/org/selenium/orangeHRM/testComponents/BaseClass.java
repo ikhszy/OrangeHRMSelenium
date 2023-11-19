@@ -9,12 +9,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.selenium.orangeHRM.pageObjects.AddUserPage;
 import org.selenium.orangeHRM.pageObjects.AdminPage;
 import org.selenium.orangeHRM.pageObjects.DashboardPage;
 import org.selenium.orangeHRM.pageObjects.LoginPage;
 import org.selenium.orangeHRM.pageObjects.ResetPasswordPage;
+import org.selenium.orangeHRM.utils.Variables;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
+import com.github.javafaker.Faker;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -25,6 +29,9 @@ public class BaseClass {
 	public ResetPasswordPage resetPage;
 	public DashboardPage dashPage;
 	public AdminPage admPage;
+	public AddUserPage adduserPage;
+	public Faker faker;
+	public Variables vbl;
 	
 	public WebDriver initializeDriver() throws IOException {
 		
@@ -58,7 +65,9 @@ public class BaseClass {
 		resetPage = new ResetPasswordPage(driver);
 		dashPage = new DashboardPage(driver);
 		admPage = new AdminPage(driver);
-		
+		adduserPage = new AddUserPage(driver);
+		faker = new Faker();
+		vbl = new Variables();
 	}
 	
 	@AfterClass

@@ -3,7 +3,6 @@ package org.selenium.orangeHRM.pageObjects;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,10 +28,13 @@ public class AdminPage extends ReusedFeature {
 	@FindBy(css = ".oxd-autocomplete-dropdown")
 	private WebElement searchEmpNameSuggestion;
 	
+	@FindBy(css = ".oxd-input-group__message")
+	private WebElement searchEmpNameError;
+	
 	@FindBy(className = "oxd-select-text-input")
 	private List <WebElement> selectDropdown;
 	
-	@FindBy(xpath="//*[role='option']")
+	@FindBy(className ="oxd-select-option")
 	private List <WebElement> dropdownSelections;
 	
 	@FindBy(xpath = "//*[@type='submit']")
@@ -40,6 +42,9 @@ public class AdminPage extends ReusedFeature {
 	
 	@FindBy(xpath = "//*[@type='button']")
 	private WebElement resetButton;
+	
+	@FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button")
+	private WebElement addButton;
 	
 	@FindBy(className = "oxd-table-card")
 	private List <WebElement> tableResults;
@@ -55,29 +60,24 @@ public class AdminPage extends ReusedFeature {
 		searchUsername.get(1).clear();
 	}
 	
-	public void dropdownRole(String role) {
-		selectDropdown.get(0).click();
-		
-		if(role.equalsIgnoreCase("admin")) {
-			selectDropdown.get(0).sendKeys(Keys.ARROW_DOWN);
-			selectDropdown.get(0).sendKeys(Keys.ENTER);
+	public void selectDropdown(String dropdown, String selection) {
+		if(dropdown.equalsIgnoreCase("role")) {
+			selectDropdown.get(0).click();
 		} else {
-			selectDropdown.get(0).sendKeys(Keys.ARROW_DOWN);
-			selectDropdown.get(0).sendKeys(Keys.ARROW_DOWN);
-			selectDropdown.get(0).sendKeys(Keys.ARROW_DOWN);
-			selectDropdown.get(0).sendKeys(Keys.ENTER);
+			selectDropdown.get(1).click();
 		}
-	}
-	
-	public void dropdownStatus(String status) {
-		selectDropdown.get(1).click();
-		if(status.equalsIgnoreCase("enabled")) {
-			selectDropdown.get(1).sendKeys(Keys.ARROW_DOWN);
-			selectDropdown.get(1).sendKeys(Keys.ENTER);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(selection.equalsIgnoreCase("admin") || selection.equalsIgnoreCase("enabled")) {
+			dropdownSelections.get(1).click();
 		} else {
-			selectDropdown.get(1).sendKeys(Keys.ARROW_DOWN);
-			selectDropdown.get(1).sendKeys(Keys.ARROW_DOWN);
-			selectDropdown.get(1).sendKeys(Keys.ENTER);
+			dropdownSelections.get(2).click();
 		}
 	}
 	
@@ -92,6 +92,11 @@ public class AdminPage extends ReusedFeature {
 		}
 		
 		searchEmpNameSuggestion.click();
+	}
+	
+	public String empNameError() {
+		String err = searchEmpNameError.getText();
+		return err;
 	}
 	
 	public void searchClick() {
@@ -146,6 +151,21 @@ public class AdminPage extends ReusedFeature {
 			userRole = tableData.get(index * 6 + 4).getText();
 		}
 		return userRole;
+	}
+	
+	public void addNewUser() {
+		addButton.click();
+	}
+	
+	public void waitPage() {
+		waitForElementToAppear(By.className("orangehrm-container"));
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
