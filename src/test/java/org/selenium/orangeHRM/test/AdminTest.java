@@ -521,7 +521,7 @@ public class AdminTest extends BaseClass {
 		loginPage.passInput(vbl.getPassword());
 		loginPage.loginClick();
 		
-		if(!loginPage.errNotifText().equalsIgnoreCase("Invalid credentials")) {
+		if(!loginPage.errNotifText().equalsIgnoreCase("Account disabled")) {
 			Assert.fail("text doesn't match: " + loginPage.errNotifText());
 		} else if (loginPage.errNotifShown() == false) {
 			Assert.fail("Error text is not shown");
