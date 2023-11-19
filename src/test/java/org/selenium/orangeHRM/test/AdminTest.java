@@ -352,6 +352,20 @@ public class AdminTest extends BaseClass {
 		} else {
 			Assert.fail("showing wrong role: " + admPage.getTableUserRole(0));
 		}
+		
+		// logout
+		profBadge.dropSelection("logout");
+		
+		// Assert 4
+		loginPage.usernameInput(vbl.getUsername());;
+		loginPage.passInput(vbl.getPassword());
+		loginPage.loginClick();
+		
+		if(!dashPage.dashboardTitle.isDisplayed()) {
+			Assert.fail("failed to login");
+		} else {
+			Assert.assertTrue(true);
+		}
 	}
 	
 	@Test(priority = 11, description = "Admin - Add new ESS user")
@@ -418,6 +432,20 @@ public class AdminTest extends BaseClass {
 		} else {
 			Assert.fail("showing wrong role: " + admPage.getTableUserRole(0));
 		}
+		
+		// logout
+		profBadge.dropSelection("logout");
+		
+		// Assert 4
+		loginPage.usernameInput(vbl.getUsername());;
+		loginPage.passInput(vbl.getPassword());
+		loginPage.loginClick();
+		
+		if(!dashPage.dashboardTitle.isDisplayed()) {
+			Assert.fail("failed to login");
+		} else {
+			Assert.assertTrue(true);
+		}
 	}
 	
 	@Test(priority = 12, description = "Admin - Add new disabled user")
@@ -483,6 +511,22 @@ public class AdminTest extends BaseClass {
 			Assert.assertTrue(true);
 		} else {
 			Assert.fail("showing wrong status: " + admPage.getTableUserStatus(0));
+		}
+		
+		// logout
+		profBadge.dropSelection("logout");
+		
+		// Assert 4
+		loginPage.usernameInput(vbl.getUsername());;
+		loginPage.passInput(vbl.getPassword());
+		loginPage.loginClick();
+		
+		if(!loginPage.errNotifText().equalsIgnoreCase("Invalid credentials")) {
+			Assert.fail("text doesn't match: " + loginPage.errNotifText());
+		} else if (loginPage.errNotifShown() == false) {
+			Assert.fail("Error text is not shown");
+		} else {
+			Assert.assertTrue(true);
 		}
 	}
 }
