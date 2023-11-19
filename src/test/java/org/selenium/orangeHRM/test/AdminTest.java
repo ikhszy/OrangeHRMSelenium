@@ -157,7 +157,7 @@ public class AdminTest extends BaseClass {
 		// search using index no 2 because this is a public website and data is moving
 		// 3rd data is the least to change so far
 		driver.navigate().refresh();
-		admPage.searchEmployeeName(empName.get(2));
+		admPage.searchEmployeeName(empName.get(0));
 		admPage.searchClick();
 		
 		try {
@@ -176,7 +176,7 @@ public class AdminTest extends BaseClass {
 		
 		// Assert 2
 		for(int i = 0; i < admPage.searchResultTable(); i++) {
-			if(!admPage.getTableEmployeename(i).equalsIgnoreCase(empName.get(2))) {
+			if(!admPage.getTableEmployeename(i).equalsIgnoreCase(empName.get(0))) {
 				Assert.fail("table with wrong employee name at row: " + (i+1) + " " + admPage.getTableEmployeename(i));
 			} else {
 				Assert.assertTrue(true);
@@ -279,7 +279,7 @@ public class AdminTest extends BaseClass {
 		} else {
 			// Assert 2
 			for(int i = 0; i < admPage.searchResultTable(); i++) {
-				if(!admPage.getTableUserStatus(i).equalsIgnoreCase("Enabled")) {
+				if(!admPage.getTableUserStatus(i).equalsIgnoreCase("Disabled")) {
 					Assert.fail("table with non Disabled result at row: " + (i+1) + " " + admPage.getTableUserStatus(i));
 				} else {
 					Assert.assertTrue(true);
@@ -305,9 +305,9 @@ public class AdminTest extends BaseClass {
 		vbl.setPassword(faker.internet().password());
 		
 		// fill the form
-		adduserPage.selectDropdown("role", "ESS");
-		adduserPage.selectDropdown("status", "disabled");
-		adduserPage.addEmployeeName("Chase");
+		adduserPage.selectDropdown("role", "admin");
+		adduserPage.selectDropdown("status", "enabled");
+		adduserPage.addEmployeeName(empName.get(0));
 		adduserPage.addInput("username", vbl.getUsername());
 		adduserPage.addInput("password", vbl.getPassword());
 		adduserPage.addInput("else", vbl.getPassword());
@@ -344,6 +344,145 @@ public class AdminTest extends BaseClass {
 			} else {
 				Assert.fail("table doesn't contain the username");
 			}
+		}
+		
+		// Assert 3
+		if(admPage.getTableUserRole(0).equalsIgnoreCase("admin")) {
+			Assert.assertTrue(true);
+		} else {
+			Assert.fail("showing wrong role: " + admPage.getTableUserRole(0));
+		}
+	}
+	
+	@Test(priority = 11, description = "Admin - Add new ESS user")
+	public void ADM011() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// enter add user page
+		admPage.addNewUser();
+		
+		// set fake data
+		vbl.setUsername(faker.name().username());
+		vbl.setPassword(faker.internet().password());
+		
+		// fill the form
+		adduserPage.selectDropdown("role", "ess");
+		adduserPage.selectDropdown("status", "enabled");
+		adduserPage.addEmployeeName(empName.get(0));
+		adduserPage.addInput("username", vbl.getUsername());
+		adduserPage.addInput("password", vbl.getPassword());
+		adduserPage.addInput("else", vbl.getPassword());
+		
+		// save the form
+		adduserPage.addSave();
+		admPage.waitPage();
+		
+		// Assert by searching the username
+		// Search by username
+		admPage.searchUsernameType(vbl.getUsername());
+		admPage.searchClick();
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Assert 1
+		if(!admPage.searchResultText().equals("(" + 1 + ") Record Found")) {
+			Assert.fail("text result is wrong: " + admPage.searchResultText());
+		} else if(admPage.searchResultTable() != 1) {
+			Assert.fail("table is showing wrong number of result: " + admPage.searchResultTable());
+		} else {
+			Assert.assertTrue(true);
+		}
+		
+		// Assert 2
+		for(int i = 0; i < admPage.searchResultTable(); i++) {
+			if(admPage.getTableUsername(i).equalsIgnoreCase(vbl.getUsername())) {
+				Assert.assertTrue(true);
+			} else {
+				Assert.fail("table doesn't contain the username");
+			}
+		}
+		
+		// Assert 3
+		if(admPage.getTableUserRole(0).equalsIgnoreCase("ess")) {
+			Assert.assertTrue(true);
+		} else {
+			Assert.fail("showing wrong role: " + admPage.getTableUserRole(0));
+		}
+	}
+	
+	@Test(priority = 12, description = "Admin - Add new disabled user")
+	public void ADM012() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// enter add user page
+		admPage.addNewUser();
+		
+		// set fake data
+		vbl.setUsername(faker.name().username());
+		vbl.setPassword(faker.internet().password());
+		
+		// fill the form
+		adduserPage.selectDropdown("role", "ess");
+		adduserPage.selectDropdown("status", "disabled");
+		adduserPage.addEmployeeName(empName.get(0));
+		adduserPage.addInput("username", vbl.getUsername());
+		adduserPage.addInput("password", vbl.getPassword());
+		adduserPage.addInput("else", vbl.getPassword());
+		
+		// save the form
+		adduserPage.addSave();
+		admPage.waitPage();
+		
+		// Assert by searching the username
+		// Search by username
+		admPage.searchUsernameType(vbl.getUsername());
+		admPage.searchClick();
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Assert 1
+		if(!admPage.searchResultText().equals("(" + 1 + ") Record Found")) {
+			Assert.fail("text result is wrong: " + admPage.searchResultText());
+		} else if(admPage.searchResultTable() != 1) {
+			Assert.fail("table is showing wrong number of result: " + admPage.searchResultTable());
+		} else {
+			Assert.assertTrue(true);
+		}
+		
+		// Assert 2
+		for(int i = 0; i < admPage.searchResultTable(); i++) {
+			if(admPage.getTableUsername(i).equalsIgnoreCase(vbl.getUsername())) {
+				Assert.assertTrue(true);
+			} else {
+				Assert.fail("table doesn't contain the username");
+			}
+		}
+		
+		// Assert 3
+		if(admPage.getTableUserStatus(0).equalsIgnoreCase("disabled")) {
+			Assert.assertTrue(true);
+		} else {
+			Assert.fail("showing wrong status: " + admPage.getTableUserStatus(0));
 		}
 	}
 }
