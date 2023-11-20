@@ -19,7 +19,7 @@ WebDriver driver;
 	}
 	
 	@FindBy(className = "oxd-topbar-header-breadcrumb-module")
-	private WebElement dashboardTitle;
+	public WebElement dashboardTitle;
 	
 	@FindBy(xpath = "//*[@title='Assign Leave']")
 	private WebElement qlAssignLeave;

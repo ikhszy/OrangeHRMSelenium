@@ -38,6 +38,9 @@ public class AddUserPage extends ReusedFeature {
 	
 	@FindBy(xpath = "//*[@type='button']")
 	private WebElement addEmployeeCancelButton;
+	
+	@FindBy(className = "oxd-checkbox-input-icon")
+	private WebElement changePasswordCheck;
 
 	public void selectDropdown(String dropdown, String selection) {
 		if(dropdown.equalsIgnoreCase("role")) {
@@ -89,5 +92,9 @@ public class AddUserPage extends ReusedFeature {
 	
 	public void addCancel() {
 		addEmployeeCancelButton.click();
+	}
+	
+	public void changePassCheck() {
+		changePasswordCheck.click();
 	}
 }

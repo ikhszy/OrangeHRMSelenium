@@ -52,6 +52,12 @@ public class AdminPage extends ReusedFeature {
 	@FindBy(xpath = "//*[@class='oxd-table-cell oxd-padding-cell']")
 	private List <WebElement> tableData; 
 	
+	@FindBy(css = ".oxd-icon.bi-trash")
+	private List <WebElement> trashButton;
+	
+	@FindBy(css = ".oxd-icon.bi-pencil-fill")
+	private List <WebElement> editButton;
+	
 	public void searchUsernameType(String uname) {
 		searchUsername.get(1).sendKeys(uname);
 	}
@@ -151,6 +157,14 @@ public class AdminPage extends ReusedFeature {
 			userRole = tableData.get(index * 6 + 4).getText();
 		}
 		return userRole;
+	}
+	
+	public void deleteUserclick(int index) {
+		trashButton.get(index).click();
+	}
+	
+	public void editUserClick(int index) {
+		editButton.get(index).click();
 	}
 	
 	public void addNewUser() {
