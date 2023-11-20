@@ -1,65 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-19T11:37:26 WIB" name="Default suite" finished-at="2023-11-19T11:40:00 WIB" duration-ms="154427">
+  <suite started-at="2023-11-20T11:02:56 WIB" name="Default suite" finished-at="2023-11-20T11:03:31 WIB" duration-ms="34411">
     <groups>
     </groups>
-    <test started-at="2023-11-19T11:37:26 WIB" name="Default test" finished-at="2023-11-19T11:40:00 WIB" duration-ms="154427">
-      <class name="org.selenium.orangeHRM.test.AdminTest">
-        <test-method is-config="true" signature="lauchApplication()[pri:0, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:37:26 WIB" name="lauchApplication" finished-at="2023-11-19T11:37:37 WIB" duration-ms="10852" status="PASS">
+    <test started-at="2023-11-20T11:02:56 WIB" name="Default test" finished-at="2023-11-20T11:03:31 WIB" duration-ms="34411">
+      <class name="org.selenium.orangeHRM.test.Playground">
+        <test-method is-config="true" signature="lauchApplication()[pri:0, instance:org.selenium.orangeHRM.test.Playground@433defed]" started-at="2023-11-20T11:02:56 WIB" name="lauchApplication" finished-at="2023-11-20T11:03:07 WIB" duration-ms="10572" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- lauchApplication -->
-        <test-method signature="ADM001()[pri:1, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:37:37 WIB" name="ADM001" description="Admin - Success search by username" finished-at="2023-11-19T11:37:44 WIB" duration-ms="7569" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM001 -->
-        <test-method signature="ADM002()[pri:2, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:37:44 WIB" name="ADM002" description="Admin - failed search by username" finished-at="2023-11-19T11:37:59 WIB" duration-ms="14622" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM002 -->
-        <test-method signature="ADM003()[pri:3, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:37:59 WIB" name="ADM003" description="Admin - Success search by role (admin)" finished-at="2023-11-19T11:38:09 WIB" duration-ms="10421" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM003 -->
-        <test-method signature="ADM004()[pri:4, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:38:09 WIB" name="ADM004" description="Admin - Success search by role (ESS)" finished-at="2023-11-19T11:38:19 WIB" duration-ms="9646" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM004 -->
-        <test-method signature="ADM005()[pri:5, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:38:19 WIB" name="ADM005" description="Admin - Success search by Employee Name" finished-at="2023-11-19T11:38:27 WIB" duration-ms="7993" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM005 -->
-        <test-method signature="ADM006()[pri:6, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:38:27 WIB" name="ADM006" description="Admin - Failed search by Employee Name" finished-at="2023-11-19T11:38:33 WIB" duration-ms="6269" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM006 -->
-        <test-method signature="ADM007()[pri:7, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:38:33 WIB" name="ADM007" description="Admin - Success search by user status (Enabled)" finished-at="2023-11-19T11:38:43 WIB" duration-ms="9546" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM007 -->
-        <test-method signature="ADM008()[pri:8, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:38:43 WIB" name="ADM008" description="Admin - Success search by user status (Disabled)" finished-at="2023-11-19T11:38:52 WIB" duration-ms="9207" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM008 -->
-        <test-method signature="ADM010()[pri:10, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:38:52 WIB" name="ADM010" description="Admin - Add new admin user" finished-at="2023-11-19T11:39:15 WIB" duration-ms="22731" status="PASS">
+        <test-method signature="ADM010()[pri:10, instance:org.selenium.orangeHRM.test.Playground@433defed]" started-at="2023-11-20T11:03:07 WIB" name="ADM010" description="Admin - Add new admin user" finished-at="2023-11-20T11:03:30 WIB" duration-ms="23627" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ADM010 -->
-        <test-method signature="ADM011()[pri:11, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:39:15 WIB" name="ADM011" description="Admin - Add new ESS user" finished-at="2023-11-19T11:39:38 WIB" duration-ms="23078" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM011 -->
-        <test-method signature="ADM012()[pri:12, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:39:38 WIB" name="ADM012" description="Admin - Add new disabled user" finished-at="2023-11-19T11:40:00 WIB" duration-ms="22331" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ADM012 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.selenium.orangeHRM.test.AdminTest@4a8355dd]" started-at="2023-11-19T11:40:00 WIB" name="tearDown" finished-at="2023-11-19T11:40:00 WIB" duration-ms="94" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.selenium.orangeHRM.test.Playground@433defed]" started-at="2023-11-20T11:03:30 WIB" name="tearDown" finished-at="2023-11-20T11:03:31 WIB" duration-ms="145" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- org.selenium.orangeHRM.test.AdminTest -->
+      </class> <!-- org.selenium.orangeHRM.test.Playground -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -446,10 +446,21 @@ public class AdminTest extends BaseClass {
 		} else {
 			Assert.assertTrue(true);
 		}
+		
+		// logout
+		profBadge.dropSelection("logout");
 	}
 	
 	@Test(priority = 12, description = "Admin - Add new disabled user")
 	public void ADM012() {
+		// login first
+		loginPage.usernameInput("Admin");;
+		loginPage.passInput("admin123");
+		loginPage.loginClick();
+		
+		// enter the admin page
+		dashPage.searchMenuAndClick("Admin");
+		
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -527,6 +538,75 @@ public class AdminTest extends BaseClass {
 			Assert.fail("Error text is not shown");
 		} else {
 			Assert.assertTrue(true);
+		}
+		
+		// login first
+		loginPage.usernameInput("Admin");;
+		loginPage.passInput("admin123");
+		loginPage.loginClick();
+		
+		// enter the admin page
+		dashPage.searchMenuAndClick("Admin");
+	}
+	
+	@Test(priority = 13, description = "Admin - Edit user role to ESS")
+	public void ADM013() {
+		
+		// login first
+		loginPage.usernameInput("Admin");;
+		loginPage.passInput("admin123");
+		loginPage.loginClick();
+		
+		// enter the admin page
+		dashPage.searchMenuAndClick("Admin");
+		
+		// search by role
+		admPage.selectDropdown("role", "admin");
+		admPage.searchClick();
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Assert 1
+		if(admPage.searchResultTable() == 0) {
+			Assert.fail("table is showing wrong number of result: " + admPage.searchResultTable());
+		} else {
+			Assert.assertTrue(true);
+		}
+		
+		// get the username for assertion
+		String uname = admPage.getTableUsername(4);
+		
+		// select the 4th or 5th data
+		admPage.editUserClick(4);
+		
+		// make changes on the role
+		adduserPage.selectDropdown("role", "ess");
+		
+		// save the changes
+		adduserPage.addSave();
+		
+		// refresh and search again using username
+		driver.navigate().refresh();
+		admPage.searchUsernameType(uname);
+		admPage.searchClick();
+		
+		// assert the role is correct
+		if(!admPage.getTableUserRole(0).equalsIgnoreCase("ess")) {
+			Assert.fail("Wrong role: " + admPage.getTableUserRole(0));
+		} else {
+			Assert.assertTrue(true);
+		}
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
