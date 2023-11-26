@@ -13,6 +13,7 @@ import org.selenium.orangeHRM.pageObjects.AddUserPage;
 import org.selenium.orangeHRM.pageObjects.AdminPage;
 import org.selenium.orangeHRM.pageObjects.DashboardPage;
 import org.selenium.orangeHRM.pageObjects.LoginPage;
+import org.selenium.orangeHRM.pageObjects.PimPage;
 import org.selenium.orangeHRM.pageObjects.ProfileBadge;
 import org.selenium.orangeHRM.pageObjects.ResetPasswordPage;
 import org.selenium.orangeHRM.utils.Variables;
@@ -32,6 +33,7 @@ public class BaseClass {
 	public AdminPage admPage;
 	public AddUserPage adduserPage;
 	public ProfileBadge profBadge;
+	public PimPage pim;
 	public Faker faker;
 	public Variables vbl;
 	
@@ -69,6 +71,7 @@ public class BaseClass {
 		admPage = new AdminPage(driver);
 		adduserPage = new AddUserPage(driver);
 		profBadge = new ProfileBadge(driver);
+		pim = new PimPage(driver);
 		faker = new Faker();
 		vbl = new Variables();
 	}
