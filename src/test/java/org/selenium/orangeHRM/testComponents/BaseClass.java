@@ -33,7 +33,7 @@ public class BaseClass {
 	public AdminPage admPage;
 	public AddUserPage adduserPage;
 	public ProfileBadge profBadge;
-	public PimPage pim;
+	public PimPage pimPage;
 	public Faker faker;
 	public Variables vbl;
 	
@@ -71,7 +71,7 @@ public class BaseClass {
 		admPage = new AdminPage(driver);
 		adduserPage = new AddUserPage(driver);
 		profBadge = new ProfileBadge(driver);
-		pim = new PimPage(driver);
+		pimPage = new PimPage(driver);
 		faker = new Faker();
 		vbl = new Variables();
 	}
